@@ -27,7 +27,7 @@ COPY --from=build /app/.svelte-kit ./.svelte-kit
 COPY --from=build /app/static ./static
 
 # SvelteKit adapter-node listens on PORT env; CapRover sets PORT
-ENV PORT=3000
+
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+CMD ["node", "build"]
