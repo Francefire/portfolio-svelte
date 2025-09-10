@@ -2,7 +2,6 @@
  * Tailwind configuration with centralized palette referencing CSS variables.
  * Shades map to HSL variables defined in theme.css for easy tuning.
  */
-import tailwindcss from '@tailwindcss/vite';
 
 /** @type {import('tailwindcss').Config} */
 export default {
