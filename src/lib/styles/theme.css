@@ -1,0 +1,79 @@
+/* Central theme tokens: adjust once, propagate via Tailwind hsl(var(--...)) */
+/* Root (light theme) */
+:root {
+  /* Primary (indigo / violet hybrid) */
+  --color-primary-50:  248 67% 97%;
+  --color-primary-100: 248 77% 95%;
+  --color-primary-200: 249 86% 89%;
+  --color-primary-300: 255 90% 80%;
+  --color-primary-400: 258 90% 72%;
+  --color-primary-500: 262 83% 60%;
+  --color-primary-600: 263 72% 52%;
+  --color-primary-700: 263 69% 44%;
+  --color-primary-800: 264 63% 35%;
+  --color-primary-900: 265 61% 28%;
+
+  /* Accent (amber / orange vibrant) */
+  --color-accent-50:  42 100% 97%;
+  --color-accent-100: 43 96% 92%;
+  --color-accent-200: 43 97% 85%;
+  --color-accent-300: 39 97% 73%;
+  --color-accent-400: 34 97% 65%;
+  --color-accent-500: 30 96% 58%;
+  --color-accent-600: 27 91% 50%;
+  --color-accent-700: 23 82% 45%;
+  --color-accent-800: 20 75% 40%;
+  --color-accent-900: 18 65% 35%;
+
+  /* Neutral (slate-like) */
+  --color-neutral-50: 210 40% 98%;
+  --color-neutral-100: 210 40% 96%;
+  --color-neutral-200: 214 32% 91%;
+  --color-neutral-300: 213 27% 84%;
+  --color-neutral-400: 215 20% 65%;
+  --color-neutral-500: 215 16% 47%;
+  --color-neutral-600: 215 19% 35%;
+  --color-neutral-700: 215 25% 27%;
+  --color-neutral-800: 217 33% 17%;
+  --color-neutral-900: 222 47% 11%;
+
+  /* Semantic tokens (light) */
+  --color-bg: hsl(var(--color-neutral-50));
+  --color-bg-alt: hsl(var(--color-neutral-100));
+  --color-surface: hsl(var(--color-neutral-100));
+  --color-surface-alt: hsl(var(--color-neutral-200));
+  --color-border: hsl(var(--color-neutral-300));
+  --color-text: hsl(var(--color-neutral-800));
+  --color-text-soft: hsl(var(--color-neutral-600));
+  --color-primary: hsl(var(--color-primary-600));
+  --color-primary-hover: hsl(var(--color-primary-500));
+  --color-accent: hsl(var(--color-accent-500));
+  --color-accent-hover: hsl(var(--color-accent-400));
+  --ring: var(--color-primary);
+  color-scheme: light;
+}
+
+/* Dark theme overrides */
+.dark {
+  --color-bg: hsl(var(--color-neutral-900));
+  --color-bg-alt: hsl(var(--color-neutral-800));
+  --color-surface: hsl(var(--color-neutral-800));
+  --color-surface-alt: hsl(var(--color-neutral-700));
+  --color-border: hsl(var(--color-neutral-600));
+  --color-text: hsl(var(--color-neutral-100));
+  --color-text-soft: hsl(var(--color-neutral-400));
+  --color-primary: hsl(var(--color-primary-500));
+  --color-primary-hover: hsl(var(--color-primary-400));
+  --color-accent: hsl(var(--color-accent-400));
+  --color-accent-hover: hsl(var(--color-accent-300));
+  --ring: var(--color-primary);
+  color-scheme: dark;
+}
+
+/* Utility classes bridging tokens */
+.theme-bg { background-color: var(--color-bg); }
+.theme-surface { background-color: var(--color-surface); }
+.theme-border { border-color: var(--color-border); }
+.theme-text { color: var(--color-text); }
+.theme-text-soft { color: var(--color-text-soft); }
+
