@@ -12,7 +12,7 @@
 </svelte:head>
 
 <!-- Header du projet -->
-<section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+<section class="bg-neutral-50 dark:bg-neutral-900 py-16">
 	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="text-center">
 			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{project.titre}</h1>

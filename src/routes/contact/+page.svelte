@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { reveal } from 'svelte-reveal';
 	import { personalInfo } from '$lib';
 	
 	let name = $state('');
@@ -38,118 +39,109 @@
 </svelte:head>
 
 <!-- Header -->
-<section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="text-center">
-			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contactez-moi</h1>
-			<p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-				Je suis actuellement à la recherche d'une alternance. 
-				N'hésitez pas à me contacter pour discuter de vos projets !
+<section class="py-24 md:py-32 bg-neutral-50 dark:bg-neutral-900">
+	<div class="container-constrained">
+		<div class="max-w-4xl mx-auto text-center">
+			<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+				<span class="text-neutral-900 dark:text-neutral-100">
+					Contact
+				</span>
+			</h1>
+			<p class="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+				Je suis actuellement à la recherche d'une alternance. N'hésitez pas à me contacter pour discuter de vos projets !
 			</p>
 		</div>
 	</div>
 </section>
 
-<section class="py-16 bg-white">
-	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-			<!-- Informations de contact -->
-			<div>
-				<h2 class="text-3xl font-bold text-gray-900 mb-8">Informations de contact</h2>
-				<div class="space-y-6">
-					<div class="flex items-start">
-						<div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-							<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-							</svg>
-						</div>
-						<div class="ml-4">
-							<h3 class="text-lg font-semibold text-gray-900">Email</h3>
-							<a href="mailto:{personalInfo.email}" class="text-blue-600 hover:text-blue-800 transition-colors">
-								{personalInfo.email}
-							</a>
-						</div>
-					</div>
-					
-					<div class="flex items-start">
-						<div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-							<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-							</svg>
-						</div>
-						<div class="ml-4">
-							<h3 class="text-lg font-semibold text-gray-900">Téléphone</h3>
-							<a href="tel:+33{personalInfo.phone.replace(/\s/g, '').substring(1)}" class="text-blue-600 hover:text-blue-800 transition-colors">
-								{personalInfo.phone}
-							</a>
-						</div>
-					</div>
-					
-					<div class="flex items-start">
-						<div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-							<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-							</svg>
-						</div>
-						<div class="ml-4">
-							<h3 class="text-lg font-semibold text-gray-900">Localisation</h3>
-							<p class="text-gray-600">{personalInfo.location}</p>
-						</div>
-					</div>
-					
-					<div class="flex items-start">
-						<div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-							<svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-							</svg>
-						</div>
-						<div class="ml-4">
-							<h3 class="text-lg font-semibold text-gray-900">LinkedIn</h3>
-							<a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors">
-								Profil LinkedIn
-							</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Disponibilité -->
-				<div class="mt-8 p-6 bg-green-50 rounded-lg">
-					<h3 class="text-lg font-semibold text-green-900 mb-2">Disponibilité</h3>
-					<p class="text-green-800">
+<!-- Contact Info -->
+<section class="py-20" use:reveal>
+	<div class="container-constrained">
+		<div class="grid lg:grid-cols-3 gap-8 mb-16">
+			<!-- Email -->
+			<a 
+				href="mailto:{personalInfo.email}" 
+				class="group bg-white dark:bg-neutral-900 rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition"
+			>
+				<div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📧</div>
+				<h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Email</h3>
+				<p class="text-neutral-600 dark:text-neutral-400 mb-3">Envoyez-moi un email</p>
+				<p class="text-primary-600 dark:text-primary-400 font-medium group-hover:text-primary-500 transition-colors">
+					{personalInfo.email}
+				</p>
+			</a>
+
+			<!-- Téléphone -->
+			<a 
+				href="tel:+33{personalInfo.phone.replace(/\s/g, '').substring(1)}" 
+				class="group bg-white dark:bg-neutral-900 rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition"
+			>
+				<div class="text-4xl mb-4 group-hover:scale-110 transition-transform">📞</div>
+				<h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Téléphone</h3>
+				<p class="text-neutral-600 dark:text-neutral-400 mb-3">Appelez-moi directement</p>
+				<p class="text-primary-600 dark:text-primary-400 font-medium group-hover:text-primary-500 transition-colors">
+					{personalInfo.phone}
+				</p>
+			</a>
+
+			<!-- Localisation -->
+			<div class="bg-white dark:bg-neutral-900 rounded-xl p-8 border border-neutral-200 dark:border-neutral-800">
+				<div class="text-4xl mb-4">📍</div>
+				<h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Localisation</h3>
+				<p class="text-neutral-600 dark:text-neutral-400 mb-3">Basé à</p>
+				<p class="text-neutral-700 dark:text-neutral-300 font-medium">
+					{personalInfo.location}
+				</p>
+			</div>
+		</div>
+		
+		<!-- Disponibilité -->
+		<div class="max-w-2xl mx-auto">
+			<div class="rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center">
+					<div class="text-3xl mb-4">🎆</div>
+					<h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Disponibilité</h3>
+					<p class="text-neutral-700 dark:text-neutral-300">
 						Je suis actuellement <strong>disponible</strong> pour une alternance en Concepteur Développeur d'Applications. 
 						N'hésitez pas à me contacter pour discuter de vos besoins !
 					</p>
-				</div>
 			</div>
+		</div>
+	</div>
+</section>
+
+<section class="py-20 bg-neutral-50 dark:bg-neutral-900" use:reveal>
+	<div class="container-constrained">
+		<div class="grid lg:grid-cols-2 gap-12">
 			
 			<!-- Formulaire de contact -->
 			<div>
-				<h2 class="text-3xl font-bold text-gray-900 mb-8">Envoyez-moi un message</h2>
+				<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-8">
+					Envoyez-moi un message
+				</h2>
 				
 				{#if submitMessage}
-					<div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-						<p class="text-green-800">{submitMessage}</p>
+					<div class="mb-6 p-4 bg-accent-50 dark:bg-accent-900/30 border border-accent-200 dark:border-accent-700 rounded-xl">
+						<p class="text-accent-800 dark:text-accent-200">{submitMessage}</p>
 					</div>
 				{/if}
 				
-				<form onsubmit={handleSubmit} class="space-y-6">
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<form onsubmit={handleSubmit} class="bg-white dark:bg-neutral-900 rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 space-y-6">
+					<div class="grid md:grid-cols-2 gap-6">
 						<div>
-							<label for="name" class="block text-sm font-medium text-gray-700 mb-2">
-								Nom *
+							<label for="name" class="block text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+								Nom complet *
 							</label>
 							<input
 								id="name"
 								type="text"
 								bind:value={name}
 								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+								class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
 								placeholder="Votre nom complet"
 							/>
 						</div>
 						<div>
-							<label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+							<label for="email" class="block text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
 								Email *
 							</label>
 							<input
@@ -157,27 +149,28 @@
 								type="email"
 								bind:value={email}
 								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+								class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
 								placeholder="votre@email.com"
 							/>
 						</div>
 					</div>
 					
 					<div>
-						<label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
-							Sujet
+						<label for="subject" class="block text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+							Sujet *
 						</label>
 						<input
 							id="subject"
 							type="text"
 							bind:value={subject}
-							class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+							required
+							class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
 							placeholder="Sujet de votre message"
 						/>
 					</div>
 					
 					<div>
-						<label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+						<label for="message" class="block text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
 							Message *
 						</label>
 						<textarea
@@ -185,23 +178,76 @@
 							bind:value={message}
 							required
 							rows="6"
-							class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+							class="w-full px-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-vertical"
 							placeholder="Décrivez votre projet ou votre demande..."
 						></textarea>
 					</div>
 					
-					<button
-						type="submit"
-						disabled={isSubmitting}
-						class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-					>
-						{isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
-					</button>
+					<div class="flex justify-center">
+						<button
+							type="submit"
+							disabled={isSubmitting}
+							class="inline-flex items-center gap-3 rounded-lg bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 font-semibold text-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+						>
+							{#if isSubmitting}
+								<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+								Envoi en cours...
+							{:else}
+								<span class="text-xl">📧</span>
+								Envoyer le message
+							{/if}
+						</button>
+					</div>
+					
+					<p class="text-sm text-neutral-500 dark:text-neutral-400 text-center">
+						* Champs obligatoires. Ce formulaire ouvrira votre client email par défaut.
+					</p>
 				</form>
+			</div>
+			
+			<!-- FAQ ou Infos supplémentaires -->
+			<div>
+				<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-8">
+					Questions fréquentes
+				</h2>
 				
-				<p class="mt-4 text-sm text-gray-600">
-					* Champs obligatoires. Ce formulaire ouvrira votre client email par défaut.
-				</p>
+				<div class="space-y-6">
+					<div class="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800">
+						<h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+							⚡ Délai de réponse
+						</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Je réponds généralement dans les 24 heures suivant la réception de votre message.
+						</p>
+					</div>
+					
+					<div class="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800">
+						<h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+							💼 Types de projets
+						</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Sites web, applications, e-commerce, refonte, optimisation ou consultation technique.
+						</p>
+					</div>
+					
+					<div class="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800">
+						<h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+							🤝 Collaboration
+						</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Disponible pour des missions freelance, contrats ou collaborations ponctuelles.
+						</p>
+					</div>
+					
+					<div class="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800">
+						<h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+							🎯 Devis gratuit
+						</h3>
+						<p class="text-neutral-600 dark:text-neutral-400">
+							Évaluation et devis gratuits pour tout projet de développement web.
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

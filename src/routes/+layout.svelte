@@ -20,7 +20,7 @@
 
 <div class="min-h-screen flex flex-col">
 	<Navigation />
-	<main class="flex-1">
+	<main class="flex-1 bg-white dark:bg-black">
 		{@render children?.()}
 	</main>
 	<Footer />
