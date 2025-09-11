@@ -36,3 +36,31 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+
+### Docker + GHCR
+
+The repo includes a multi-stage `Dockerfile` and a GitHub Actions workflow that builds and pushes to GHCR on pushes to `main` (linux/amd64 only).
+
+- Image registry: `ghcr.io/<owner>/<repo>` (lowercased automatically)
+- Tags: branch name, git tag, commit SHA, and `latest` on default branch
+- Package auto-create: GHCR auto-creates the package on first push using `${{ secrets.GHCR_TOKEN }}`
+
+Make the package public (optional):
+
+1. Go to GitHub → Packages (on the repo sidebar)
+2. Open the container package → Package Settings → Change visibility to Public
+
+Local build and test:
+
+```powershell
+docker build -t ghcr.io/<owner>/<repo>:test .
+docker run --rm -p 3000:3000 ghcr.io/<owner>/<repo>:test
+```
+
+Manual login and push (if pushing locally):
+
+```powershell
+echo $env:GHCR_TOKEN | docker login ghcr.io -u <your-username> --password-stdin
+docker push ghcr.io/<owner>/<repo>:test
+```

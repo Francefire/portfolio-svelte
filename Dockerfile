@@ -22,9 +22,8 @@ ENV NODE_ENV=production
 COPY package.json package-lock.json* pnpm-lock.yaml* yarn.lock* ./
 RUN npm ci --omit=dev --ignore-scripts || npm install --production --ignore-scripts
 
+# Only the final SvelteKit Node build output is required at runtime
 COPY --from=build /app/build ./build
-COPY --from=build /app/.svelte-kit ./.svelte-kit
-COPY --from=build /app/static ./static
 
 # SvelteKit adapter-node listens on PORT env; CapRover sets PORT
 
