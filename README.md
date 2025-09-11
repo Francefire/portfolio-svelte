@@ -64,3 +64,16 @@ Manual login and push (if pushing locally):
 echo $env:GHCR_TOKEN | docker login ghcr.io -u <your-username> --password-stdin
 docker push ghcr.io/<owner>/<repo>:test
 ```
+
+### CapRover Deploy (CI/CD)
+
+This repo can deploy the built GHCR image to a CapRover app on pushes to `main` via the workflow at `.github/workflows/docker-image.yml`.
+
+- Requires repository secrets:
+  - `CAPROVER_SERVER`: e.g. `https://captain.your-domain.tld`
+  - `APP_NAME`: CapRover app name (must exist)
+  - `APP_TOKEN`: App token from the app's Deployment tab
+- The workflow builds and pushes `ghcr.io/<owner>/<repo>:latest` and then deploys that tag.
+- Make sure the CapRover app is configured to pull from a registry and has network/ports set properly.
+
+Trigger: push to `main` (skips deploy for pull_request events).

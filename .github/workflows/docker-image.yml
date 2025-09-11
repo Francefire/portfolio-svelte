@@ -60,3 +60,23 @@ jobs:
           platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      ### Deploy Image to CapRover
+      - name: Set image URL and commit env
+        if: github.event_name != 'pull_request'
+        id: prep
+        shell: bash
+        run: |
+          echo "CAPROVER_GIT_COMMIT_SHA=${GITHUB_SHA}" >> $GITHUB_ENV
+          # Use the 'latest' tag on default branch for deploy by default
+          echo "image_url=${{ steps.names.outputs.image }}:latest" >> $GITHUB_OUTPUT
+
+      - name: Deploy to CapRover
+        if: github.event_name != 'pull_request'
+        uses: caprover/deploy-from-github@v1.1.2
+        with:
+          server: "${{ secrets.CAPROVER_SERVER }}"
+          app: "${{ secrets.APP_NAME }}"
+          token: "${{ secrets.APP_TOKEN }}"
+          image: ${{ steps.prep.outputs.image_url }}
+        
