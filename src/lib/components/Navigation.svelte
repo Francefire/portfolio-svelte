@@ -7,7 +7,8 @@
 		{ href: '/', label: 'Accueil' },
 		{ href: '/about', label: 'À propos' },
 		{ href: '/projects', label: 'Projets' },
-		{ href: '/contact', label: 'Contact' }
+		{ href: '/contact', label: 'Contact' },
+		{ href: '/cv', label: 'CV (PDF)' }
 	];
 </script>
 

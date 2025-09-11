@@ -24,7 +24,7 @@
 						LinkedIn
 					</a>
 					<a 
-						href="/cv" 
+						href="/cv?dl=1" 
 						class="block text-gray-300 hover:text-white transition-colors"
 					>
 						Télécharger CV
