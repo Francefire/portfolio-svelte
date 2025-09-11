@@ -19,5 +19,5 @@ jobs:
     - name: GHCR-Action
       uses: KuhlTime/ghcr-action@v2
       with:
-        token: secrets.GITHUB_TOKEN
+        token: secrets.GHCR_TOKEN
 
